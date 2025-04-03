@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex"> <!-- Prevent search engines from indexing -->
+    <meta name="robots" content="noindex">
     <title>Darius McCoy | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
             --gray: #4A4A4A;
             --white: #FFFFFF;
-            --red: #E53935;
-            --accent: #FFCA28;
-            --dark-red: #B71C1C;
+            --red: #E53935; /* Primary red */
+            --dark-red: #B71C1C; /* Darker red */
+            --blue: #1E88E5; /* Primary blue replacing accent */
+            --dark-blue: #0D47A1; /* Darker blue for depth */
             --shadow: rgba(0, 0, 0, 0.3);
             --light-gray: #E0E0E0;
         }
@@ -26,9 +27,9 @@
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
-            background: url('https://www.transparenttextures.com/patterns/dark-wood.png'), linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* 2013 textured background */
+            background: url('https://www.transparenttextures.com/patterns/dark-wood.png'), linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             scroll-behavior: smooth;
-            padding-top: 100px; /* Offset for fixed navbar height */
+            padding-top: 100px;
         }
 
         #navbar {
@@ -36,13 +37,13 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(90deg, var(--dark-red), var(--red));
+            background: linear-gradient(90deg, var(--dark-red), var(--red)); /* Red gradient */
             padding: 1rem 2rem;
             display: flex;
             justify-content: center;
             gap: 2rem;
             box-shadow: 0 5px 15px var(--shadow);
-            border-bottom: 4px solid var(--accent);
+            border-bottom: 4px solid var(--blue); /* Blue border */
             z-index: 9999;
         }
 
@@ -57,7 +58,7 @@
             padding: 0.8rem 1.5rem;
             border-radius: 10px;
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid var(--blue); /* Blue border */
             box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.3), 0 3px 5px var(--shadow);
             transition: all 0.3s ease;
         }
@@ -67,8 +68,8 @@
         }
 
         #navbar a:hover {
-            background: linear-gradient(to bottom, var(--accent), #e6b800);
-            color: var(--dark-red);
+            background: linear-gradient(to bottom, var(--blue), var(--dark-blue)); /* Blue hover */
+            color: var(--white);
             transform: translateY(-2px);
             box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.5), 0 5px 10px var(--shadow);
         }
@@ -79,11 +80,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--red), var(--dark-red));
+            background: linear-gradient(135deg, var(--red), var(--dark-blue)); /* Red to blue gradient */
             color: var(--white);
             position: relative;
             overflow: hidden;
-            border-bottom: 5px solid var(--accent);
+            border-bottom: 5px solid var(--blue); /* Blue border */
             box-shadow: 0 10px 20px var(--shadow);
         }
 
@@ -106,7 +107,7 @@
             font-size: 4rem;
             font-weight: 700;
             text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-            background: linear-gradient(to right, var(--white), var(--accent));
+            background: linear-gradient(to right, var(--white), var(--blue)); /* White to blue text */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1.5rem;
@@ -119,14 +120,14 @@
             background: rgba(0, 0, 0, 0.3);
             padding: 10px 20px;
             border-radius: 15px;
-            border: 2px solid var(--accent);
+            border: 2px solid var(--blue); /* Blue border */
         }
 
         #projects {
             padding: 80px 20px;
             background: var(--light-gray);
             text-align: center;
-            border-top: 5px solid var(--accent);
+            border-top: 5px solid var(--blue); /* Blue border */
         }
 
         #projects h2 {
@@ -144,7 +145,7 @@
             background: linear-gradient(to bottom, #ffffff, #f0f0f0);
             padding: 40px;
             border-radius: 15px;
-            border: 3px solid var(--red);
+            border: 3px solid var(--red); /* Red border */
             box-shadow: 0 8px 20px var(--shadow), inset 0 2px 5px rgba(255, 255, 255, 0.5);
             transition: all 0.3s ease;
         }
@@ -152,10 +153,11 @@
         .project-tile:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 30px var(--shadow), inset 0 2px 5px rgba(255, 255, 255, 0.7);
+            border-color: var(--blue); /* Blue border on hover */
         }
 
         .project-tile h3 {
-            color: var(--dark-red);
+            color: var(--dark-blue); /* Blue titles */
             font-size: 2rem;
             font-weight: 600;
             margin-bottom: 15px;
@@ -173,20 +175,20 @@
 
         .project-tile a {
             color: var(--white);
-            background: linear-gradient(to bottom, var(--red), var(--dark-red));
+            background: linear-gradient(to bottom, var(--red), var(--dark-red)); /* Red button */
             text-decoration: none;
             font-weight: 700;
             padding: 10px 20px;
             border-radius: 25px;
-            border: 2px solid var(--accent);
+            border: 2px solid var(--blue); /* Blue border */
             box-shadow: 0 3px 5px var(--shadow);
             transition: all 0.3s ease;
             display: inline-block;
         }
 
         .project-tile a:hover {
-            background: linear-gradient(to bottom, var(--accent), #e6b800);
-            color: var(--dark-red);
+            background: linear-gradient(to bottom, var(--blue), var(--dark-blue)); /* Blue hover */
+            color: var(--white);
             transform: scale(1.05);
             box-shadow: 0 5px 10px var(--shadow);
         }
@@ -215,21 +217,21 @@
             content: '';
             position: absolute;
             width: 6px;
-            background: linear-gradient(to bottom, var(--accent), var(--red));
+            background: linear-gradient(to bottom, var(--blue), var(--red)); /* Blue to red */
             height: 100%;
             left: 50%;
             transform: translateX(-50%);
-            box-shadow: 0 0 10px rgba(255, 202, 40, 0.5);
+            box-shadow: 0 0 10px rgba(30, 136, 229, 0.5); /* Blue glow */
         }
 
         .timeline-item {
-            margin: 40px 0;
+            margin: 40px 0六合彩现场直播;
             position: relative;
             width: 45%;
             padding: 30px;
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
             border-radius: 15px;
-            border: 2px solid var(--accent);
+            border: 2px solid var(--blue); /* Blue border */
             box-shadow: 0 5px 15px var(--shadow), inset 0 2px 5px rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
         }
@@ -244,9 +246,9 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            background: var(--red);
+            background: var(--red); /* Red dot */
             border-radius: 50%;
-            border: 3px solid var(--accent);
+            border: 3px solid var(--blue); /* Blue border */
             top: 30px;
             right: -41px;
             box-shadow: 0 0 10px rgba(229, 57, 53, 0.5);
@@ -267,7 +269,7 @@
         .timeline-item h3 {
             font-size: 1.5rem;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--blue); /* Blue titles */
             margin-bottom: 10px;
             text-shadow: 1px 1px 2px var(--shadow);
         }
@@ -279,10 +281,10 @@
 
         #social-media {
             padding: 80px 20px;
-            background: linear-gradient(to bottom, var(--dark-red), var(--red));
+            background: linear-gradient(to bottom, var(--dark-blue), var(--red)); /* Blue to red */
             text-align: center;
             color: var(--white);
-            border-top: 5px solid var(--accent);
+            border-top: 5px solid var(--blue); /* Blue border */
         }
 
         #social-media h2 {
@@ -303,8 +305,8 @@
             gap: 0.5rem;
             padding: 10px 20px;
             border-radius: 25px;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
-            border: 2px solid var(--accent);
+            background: linear-gradient(to bottom, var(--red), var(--dark-red)); /* Red buttons */
+            border: 2px solid var(--blue); /* Blue border */
             box-shadow: 0 3px 5px var(--shadow);
             transition: all 0.3s ease;
         }
@@ -314,8 +316,8 @@
         }
 
         #social-media a:hover {
-            background: linear-gradient(to bottom, var(--accent), #e6b800);
-            color: var(--dark-red);
+            background: linear-gradient(to bottom, var(--blue), var(--dark-blue)); /* Blue hover */
+            color: var(--white);
             transform: scale(1.05);
             box-shadow: 0 5px 10px var(--shadow);
         }
@@ -388,15 +390,15 @@
         <h2>My Journey</h2>
         <div class="timeline">
             <div class="timeline-item">
-                <h3>2022: The Spark. </h3>
-                <p>Started making music in 2022 .</p>
+                <h3>2022: The Spark.</h3>
+                <p>Started making music in 2022.</p>
             </div>
             <div class="timeline-item">
-                <h3>2023: Making AI Art </h3>
+                <h3>2023: Making AI Art</h3>
                 <p>I made AI Art on ideogram.</p>
             </div>
             <div class="timeline-item">
-                <h3>2024: Education </h3>
+                <h3>2024: Education</h3>
                 <p>I started software and app design in 2024.</p>
             </div>
         </div>
